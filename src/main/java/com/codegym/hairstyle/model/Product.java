@@ -23,4 +23,14 @@ public class Product {
 
     @Column
     private String price;
+
+    public Product(String name, String decent, String image, String price) {
+        this.name = name;
+        this.decent = decent;
+        this.image = image;
+        this.price = price;
+    }
+
+    public Product() {
+    }
 }

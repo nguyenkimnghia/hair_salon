@@ -23,4 +23,10 @@ public class ProductServiceImpl implements ProductService {
         sr.setData(productRepository.findAll());
         return sr;
     }
+
+    @Override
+    public ServiceResult addProduct(Product product) {
+        sr.setData(productRepository.save(product));
+        return sr;
+    }
 }
