@@ -8,4 +8,8 @@ public interface ProductService {
     ServiceResult findAllProduct();
 
     ServiceResult addProduct(Product product);
+
+    ServiceResult deleteProduct(Long id);
+
+    ServiceResult updateProduct(Product product);
 }

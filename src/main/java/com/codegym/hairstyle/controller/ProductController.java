@@ -4,30 +4,37 @@ import com.codegym.hairstyle.model.Product;
 import com.codegym.hairstyle.service.ProductService;
 import com.codegym.hairstyle.service.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
 
 @RestController
 @CrossOrigin("*")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
     ProductService productService;
 
-    @GetMapping("/product")
+    @GetMapping
     public ResponseEntity<ServiceResult> getAllProduct(){
         return new ResponseEntity<>(productService.findAllProduct(), HttpStatus.OK);
     }
 
-//    @PostMapping("/addProduct")
-//    public ResponseEntity<ServiceResult> addEmployee(@RequestBody Product product, UriComponentsBuilder ucBuilder){
-//        productService.addProduct(product);
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setLocation(ucBuilder.path("/product/{id}").buildAndExpand(product.getId()).toUri());
-//        return new ResponseEntity<>(headers,HttpStatus.CREATED);
-//    }
+    @PostMapping
+    public ResponseEntity<ServiceResult> addProduct(@RequestBody Product product){
+
+        return new ResponseEntity<>(productService.addProduct(product),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public  ResponseEntity<ServiceResult> deleteProduct(@PathVariable("id") Long id){
+        return new ResponseEntity<>(productService.deleteProduct(id),HttpStatus.OK);
+    }
+
+    @PatchMapping
+    public ResponseEntity<ServiceResult> updateProduct(@RequestBody Product product){
+        return new ResponseEntity<>(productService.updateProduct(product),HttpStatus.OK);
+    }
 }
