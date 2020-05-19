@@ -20,12 +20,6 @@ public class HairController {
     @Autowired
     ImageService imageService;
 
-    @GetMapping("/image")
-    public ResponseEntity<ServiceResult> getAllImage(){
-        return new ResponseEntity<>(imageService.findAll(),HttpStatus.OK);
-    }
-
-
     @GetMapping
     public ResponseEntity<ServiceResult> getAllHair(){
         return new ResponseEntity<>(hairService.findAllHair(), HttpStatus.OK);

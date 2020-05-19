@@ -25,18 +25,7 @@ public class HairServiceImpl implements HairService {
 
     @Override
     public ServiceResult findAllHair() {
-//        Iterable<Hair> hairs = hairRepository.findAll();
-//        ServiceResult sr = new ServiceResult();
-//        for (Hair hair: hairs) {
-//            serviceResult.setData(hair);
-//            if (hair.getId() != null){
-//                sr.setData(imageRepository.findAllByHair_Id(hair.getId()));
-//            }else {
-//                return null;
-//            }
-//        }
         serviceResult.setData(hairRepository.findAll());
-        serviceResult.setData(imageRepository.findAll());
         return serviceResult;
     }
 

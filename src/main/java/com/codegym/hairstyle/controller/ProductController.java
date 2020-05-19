@@ -37,4 +37,9 @@ public class ProductController {
     public ResponseEntity<ServiceResult> updateProduct(@RequestBody Product product){
         return new ResponseEntity<>(productService.updateProduct(product),HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ServiceResult> getProductById(@PathVariable("id") Long id){
+        return new ResponseEntity<>(productService.findByIdProduct(id), HttpStatus.OK);
+    }
 }

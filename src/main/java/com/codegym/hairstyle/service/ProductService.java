@@ -12,4 +12,6 @@ public interface ProductService {
     ServiceResult deleteProduct(Long id);
 
     ServiceResult updateProduct(Product product);
+
+    ServiceResult findByIdProduct(Long id);
 }

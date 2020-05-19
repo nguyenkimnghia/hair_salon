@@ -41,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
         } else {
             productRepository.delete(product);
         }
-        return null;
+        return sr;
     }
 
     @Override
@@ -53,7 +53,14 @@ public class ProductServiceImpl implements ProductService {
         }else {
             sr.setData(productRepository.save(product));
         }
-        return sr;
+        return null;
+    }
+
+    @Override
+    public ServiceResult findByIdProduct(Long id) {
+        ServiceResult result = new ServiceResult();
+        result.setData(productRepository.findById(id));
+        return result;
     }
 
 

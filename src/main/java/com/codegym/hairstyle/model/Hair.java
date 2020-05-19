@@ -1,8 +1,10 @@
 package com.codegym.hairstyle.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,6 +23,7 @@ public class Hair {
     @Column
     private int price;
 
-    @OneToMany(mappedBy = "image")
-    private List<Image> images;
+    @OneToMany(mappedBy = "hair")
+    @JsonManagedReference
+    private List<Image> images = new ArrayList<>();
 }
